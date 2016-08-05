@@ -57,7 +57,7 @@
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown">公司业务<strong class="caret"></strong></a>
 									<ul class="dropdown-menu">
-										<li><a href="#">账户服务</a></li>
+										<li><a href="<%=basePath%>companyAccountService/index.jsp">账户服务</a></li>
 										<li><a href="#">客户服务</a></li>
 										<li><a href="#">转账汇款</a></li>
 										<li><a href="<%=basePath%>AccountService/SalaryProvidingAction_showAccountIsOpen.action">代付服务</a></li>

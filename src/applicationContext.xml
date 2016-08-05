@@ -30,6 +30,8 @@
 				<value>com/ob/model/Client.hbm.xml</value>
 				<value>com/ob/model/Dealinform.hbm.xml</value>
 				<value>com/ob/model/Clientsubmitinfo.hbm.xml</value>
+				<value>com/ob/model/Companyclient.hbm.xml</value>
+				<value>com/ob/model/Companyaccount.hbm.xml</value>
 				<value>com/manager/ManagerOperater.hbm.xml</value>
 			    <value>Operater/db/Operater.hbm.xml</value> 
 			    <value>System/Par/rate/Loan.hbm.xml</value>
@@ -66,6 +68,16 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="companyclientDAO" class="com.ob.dao.impl.CompanyclientDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="companyaccountDAO" class="com.ob.dao.impl.CompanyaccountDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 	<bean id="accountService" class="com.ob.service.impl.AccountServiceImpl"
 		scope="singleton">
 		<property name="dao" ref="accountDAO" />
@@ -80,6 +92,14 @@
 	<bean id="dealinformService" class="com.ob.service.impl.DealinformServiceImpl"
 		scope="singleton">
 		<property name="dealinformDAO" ref="dealinformDAO" />
+	</bean>
+	<bean id="companyclientService" class="com.ob.service.impl.CompanyclientServiceImpl"
+		scope="singleton">
+		<property name="companyclientDAO" ref="companyclientDAO" />
+	</bean>
+	<bean id="companyaccountService" class="com.ob.service.impl.CompanyaccountServiceImpl"
+		scope="singleton">
+		<property name="companyaccountDAO" ref="companyaccountDAO" />
 	</bean>
 	<bean id="paymentService" class="com.ob.service.impl.PaymentServiceimpl">
 		<property name="dealinformDAO" ref="dealinformDAO"></property>
@@ -137,6 +157,30 @@
 		scope="prototype">
 		<property name="accountService" ref="accountService"></property>
 		<property name="clientService" ref="clientService"></property>
+	</bean>
+	<bean id="companyClientLoginAction" class="com.ob.action.CompanyClientLoginAction"
+		scope="prototype">
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceChangePasswordAction" class="com.ob.action.CompanyAccountServiceChangePasswordAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceLossAction" class="com.ob.action.CompanyAccountServiceLossAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceAddAction" class="com.ob.action.CompanyAccountServiceAddAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceDeleteAction" class="com.ob.action.CompanyAccountServiceDeleteAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
 	</bean>
 	<bean id="paymentAction" class="com.ob.action.PaymentAction">
 		<property name="paymentService" ref="paymentService"></property>
@@ -198,4 +242,5 @@
 		<property name="accountService" ref="accountService"></property>
 		<property name="dealinformService" ref="dealinformService"></property>
 	</bean>
+	
 </beans>

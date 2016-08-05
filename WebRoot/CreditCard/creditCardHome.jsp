@@ -21,27 +21,34 @@
 						<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu">
-						<li><a href="<%=basePath%>CreditCard/CreditcardLoss_showCreditCard.action">信用卡挂失</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditcardLoss_showCreditCard.action">信用卡挂失</a>
 						</li>
-						<li><a href="<%=basePath%>CreditCard/CreditcardActive_showCreditCard.action">信用卡激活</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditcardActive_showCreditCard.action">信用卡激活</a>
 						</li>
 						<li><a
 							href="<%=basePath%>CreditCard/CreditcardSearchPasswordSet_showCreditCard.action">信用卡查询密码设置</a>
 						</li>
-						<li><a href="<%=basePath%>CreditCard/CreditcardDealPasswordSet_showCreditCard.action">信用卡交易密码设置</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditcardDealPasswordSet_showCreditCard.action">信用卡交易密码设置</a>
 						</li>
-						<li><a href="<%=basePath%>CreditCard/CreditcardLimitSet_showCreditCard.action">信用卡额度设置</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditcardLimitSet_showCreditCard.action">信用卡额度设置</a>
 						</li>
-						<li><a href="<%=basePath%>CreditCard/CreditcardLimitSearch_showCreditCard.action">信用额度查询</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditcardLimitSearch_showCreditCard.action">信用额度查询</a>
 						</li>
-						<li><a href="<%=basePath%>CreditCard/CreditCardBillHave_showCreditCard.action">已出账单查询</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditCardBillHave_showCreditCard.action">已出账单查询</a>
 						</li>
-						<li><a href="<%=basePath%>CreditCard/CreditCardBillYet_showCreditCard.action">未出账单查询</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditCardBillYet_showCreditCard.action">未出账单查询</a>
 						</li>
-						<li><a href="<%=basePath%>CreditCard/CreditcardIntegration_showCreditCard.action">积分查询</a>
+						<li><a
+							href="<%=basePath%>CreditCard/CreditcardIntegration_showCreditCard.action">积分查询</a>
 						</li>
-						<li class="disabled"><a
-							href="credicard_searchIntegratel.action">申请进度查询</a></li>
+						<li class="disabled"><a href="#">申请进度查询</a></li>
 					</ul>
 				</div>
 			</div>

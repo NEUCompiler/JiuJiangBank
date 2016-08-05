@@ -88,6 +88,82 @@
 		</action>
 	</package>
 
+	<package name="companyAccountService" extends="struts-default"
+		namespace="/CompanyAccountService">
+		<action name="*_*" class="com.ob.action.{1}Action" method="{2}">
+			<!-- 登录 -->
+			<result name="loginFailed">/companyAccountService/companyClientLogin/companyClientLogin.jsp
+			</result>
+			<result name="loginSuccess">/index.jsp</result>
+
+			<!-- 修改密码 -->
+			<result name="loginPassword">/companyAccountService/changePassword/changeLoginPassword.jsp
+			</result>
+			<result name="searchPassword">/companyAccountService/changePassword/showAccountSPWD.jsp
+			</result>
+			<result name="dealPassword">/companyAccountService/changePassword/showAccountDPWD.jsp
+			</result>
+			<result name="addDealpassword">/companyAccountService/changePassword/changeAddDealpassword.jsp
+			</result>
+			<result name="loginPasswordChangeFailed">/companyAccountService/changePassword/changeLoginPassword.jsp
+			</result>
+			<result name="loginPasswordChangeSuccess">/companyAccountService/changePassword/changeLoginPasswordSuccess.jsp
+			</result>
+			<result name="addDealpasswordChangeFailed">/companyAccountService/changePassword/changeAddDealpassword.jsp
+			</result>
+			<result name="addDealpasswordChangeSuccess">/companyAccountService/changePassword/changeAddDealpasswordSuccess.jsp
+			</result>
+			<result name="selectAccountDPWD">/companyAccountService/changePassword/changeDealPassword.jsp
+			</result>
+			<result name="dealpasswordChangeFailed">/companyAccountService/changePassword/changeDealPassword.jsp
+			</result>
+			<result name="dealPasswordChangeSuccess">/companyAccountService/changePassword/changeDealPasswordSuccess.jsp
+			</result>
+			<result name="selectAccountSPWD">/companyAccountService/changePassword/changeDealPassword.jsp
+			</result>
+			<result name="searchPasswordChangeFailed">/companyAccountService/changePassword/changeSearchPassword.jsp
+			</result>
+			<result name="searchPasswordChangeSuccess">/companyAccountService/changePassword/changeSearchPasswordSuccess.jsp
+			</result>
+
+			<!-- 账号挂失 -->
+			<result name="showAccountLoss">/companyAccountService/companyAccountLoss/showAccount.jsp
+			</result>
+			<result name="selectOkLoss">/companyAccountService/companyAccountLoss/confirmPassword.jsp
+			</result>
+			<result name="confirmFailedLoss">/companyAccountService/companyAccountLoss/confirmPassword.jsp
+			</result>
+			<result name="confirmSuccessLoss">/companyAccountService/companyAccountLoss/lossSuccess.jsp
+			</result>
+
+			<!-- 上挂账户 -->
+			<result name="addAccountFailed">/companyAccountService/addAccount/addAccount.jsp
+			</result>
+			<result name="addAccountSuccess">/companyAccountService/addAccount/addAccountSuccess.jsp
+			</result>
+
+			<!-- 删除上挂账户 -->
+
+			<result name="deleteAccountFailed">/companyAccountService/deleteAccount/deleteAccount.jsp
+			</result>
+			<result name="deleteAccountSuccess">/companyAccountService/deleteAccount/deleteAccountSuccess.jsp
+			</result>
+
+			<!-- 显示账户 -->
+			<result name="showAccountOk">/companyAccountService/showAccount/showAccount.jsp
+			</result>
+			<result name="selectAccountShowAccountInfo">/companyAccountService/showAccount/comfirmPassword.jsp
+			</result>
+			<result name="confirmFailedShowAccountInfo">/companyAccountService/showAccount/comfirmPassword.jsp
+			</result>
+			<result name="confirmSuccessShowAccountInfo">/companyAccountService/showAccount/showAccountInfo.jsp
+			</result>
+
+
+			<result name="LoginYet">/index.jsp</result>
+		</action>
+	</package>
+
 	<package name="com.login" namespace="/111"
 		extends="struts-default,json-default">
 
@@ -122,28 +198,34 @@
 			method="selectMenuInfo">
 			<result type="json">jsonstr</result>
 		</action>
-		
-		<action name="groupLogin" class="com.ob.action.GroupLoginAction" method="groupLogin">
+
+		<action name="groupLogin" class="com.ob.action.GroupLoginAction"
+			method="groupLogin">
 			<result type="json">jsonstr</result>
 		</action>
-		
-		<action name="selectGroupPar" class="com.ob.action.GroupSelectAction" method="groupParSelect">
+
+		<action name="selectGroupPar" class="com.ob.action.GroupSelectAction"
+			method="groupParSelect">
 			<result type="json">jsonstr</result>
 		</action>
-		
-		<action name="selectGroupChi" class="com.ob.action.GroupSelectAction" method="groupChiSelect">
+
+		<action name="selectGroupChi" class="com.ob.action.GroupSelectAction"
+			method="groupChiSelect">
 			<result type="json">jsonstr</result>
 		</action>
-		
-		<action name="interest" class="com.ob.action.GroupSelectAction" method="groupMemberSelect">
+
+		<action name="interest" class="com.ob.action.GroupSelectAction"
+			method="groupMemberSelect">
 			<result type="json">jsonstr</result>
 		</action>
-		
-		<action name="back" class="com.ob.action.GroupManageAction" method="groupMemberBack">
+
+		<action name="back" class="com.ob.action.GroupManageAction"
+			method="groupMemberBack">
 			<result type="json">jsonstr</result>
 		</action>
-		
-		<action name="correct" class="com.ob.action.GroupManageAction" method="groupMemberCorrect">
+
+		<action name="correct" class="com.ob.action.GroupManageAction"
+			method="groupMemberCorrect">
 			<result type="json">jsonstr</result>
 		</action>
 
@@ -205,9 +287,12 @@
 			</result>
 
 			<!-- 代付工资 -->
-			<result name="showCompanyAccount">/AccountService/salaryProvide/selectAccountIsOpen.jsp</result>
-			<result name="success">/AccountService/salaryProvide/documentUploading.jsp</result>
-			<result name="SalaryProvidingFailed">/AccountService/salaryProvide/salaryProvidingFailed.jsp</result>
+			<result name="showCompanyAccount">/AccountService/salaryProvide/selectAccountIsOpen.jsp
+			</result>
+			<result name="success">/AccountService/salaryProvide/documentUploading.jsp
+			</result>
+			<result name="SalaryProvidingFailed">/AccountService/salaryProvide/salaryProvidingFailed.jsp
+			</result>
 			<result name="selectSalaryProviding">/AccountService/salaryProvide/salaryProvidingSuccess.jsp
 			</result>
 

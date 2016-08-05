@@ -7,10 +7,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
-    
     <title>中国建设银行 个人网上银行</title>
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,8 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
-		<style>
+	
+	<style>
 			#div1{
 				text-align: center;
 				margin-top: 100px;
@@ -30,27 +28,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				width: 200px;
 				height: 30px;
 				border:blue solid 2px;
-				position:relative;
 			}
 		</style>
-		
+	
   </head>
   
+  
+  
   <body>
-  		<div id="div1">
-	     	<h1>登陆</h1>
-	     	<form action="<%=path%>/login">
-	     	用户名<br>
-			<input name="username" type="text"> <br><br>	
-			密码<br><br>
-			<input name="userpassword" type="password">	<br><br>
-			<input type="submit" value="登陆"  style="width: 80px;background:deepskyblue;"> 
-			
-		    <input name="registe" type="button" style="width: 80px;
-			background:deepskyblue;" value="注册" onclick="window.location='begin.jsp'"/>
-	     	</form>
-	     	${request.info}
-	     	
-     	</div>
+	<div id="div1">
+		<form action="<%=path%>/register" method="get">		
+		银行卡号<br>   
+		<input name="accountid" type="text"> <br><br>
+		身份证号<br>
+		<input name="identity" type="text"> <br><br>		
+		<input type="submit" value="提交" style="width: 80px;
+			background:deepskyblue;"> <br>
+		</form>
+		${request.info}
+	</div>
   </body>
 </html>

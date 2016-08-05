@@ -22,6 +22,7 @@
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
+				<prop key="show_sql">true</prop>
 			</props>
 		</property>
 		<property name="mappingResources">
@@ -33,13 +34,15 @@
 				<value>com/ob/model/Companyclient.hbm.xml</value>
 				<value>com/ob/model/Companyaccount.hbm.xml</value>
 				<value>com/manager/ManagerOperater.hbm.xml</value>
-			    <value>Operater/db/Operater.hbm.xml</value> 
-			    <value>System/Par/rate/Loan.hbm.xml</value>
-			    <value>System/Par/rate/Deposit.hbm.xml</value>
-			    <value>System/Par/bigdeal/Bigdeal.hbm.xml</value>
-			    <value>System/Par/rate/MRole.hbm.xml</value>
-			    <value>System/Par/rate/MAu.hbm.xml</value>
-			    <value>jxl/tablemaker/db/Appointment.hbm.xml</value>
+				<value>Operater/db/Operater.hbm.xml</value>
+				<value>System/Par/rate/MRole.hbm.xml</value>
+				<value>System/Par/rate/MAu.hbm.xml</value>
+
+				<value>jxl/tablemaker/db/Appointment.hbm.xml</value>
+				<value>System/Par/rate/Loan.hbm.xml</value>
+				<value>System/Par/rate/Deposit.hbm.xml</value>
+				<value>System/Par/bigdeal/Bigdeal.hbm.xml</value>
+
 			</list>
 		</property>
 	</bean>
@@ -188,8 +191,8 @@
 	<bean id="transferAction" class="com.ob.action.TransferAction">
 		<property name="transferService" ref="transferService"></property>
 	</bean>
-	
-	
+
+
 	<!-- 张涛 -->
 	<bean id="ManagerOperaterDAO" class="com.manager.ManagerOperaterDAO">
 		<property name="sessionFactory">
@@ -242,5 +245,5 @@
 		<property name="accountService" ref="accountService"></property>
 		<property name="dealinformService" ref="dealinformService"></property>
 	</bean>
-	
+
 </beans>

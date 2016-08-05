@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   		<div id="div1">
-	     	<h1>登陆</h1>
+	     	<h1>注册成功，请登陆</h1>
 	     	<form action="<%=path%>/login">
 	     	用户名<br>
 			<input name="username" type="text"> <br><br>	

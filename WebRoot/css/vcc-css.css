@@ -1,0 +1,64 @@
+@charset "utf-8";/* CSS Document */
+
+/*首页标题*/
+.vcc-index_title_box{  overflow: hidden;  }
+.vcc-index_title{ display: block; width: 960px; margin:0 auto;  height: 46px; line-height: 32px; font-size: 30px; overflow: hidden; }
+.vcc-index_title_a{ display:block; float: left; padding-right: 11px; border-left: 10px solid #c1c1c1; padding-left: 10px; color:#333; }
+.vcc-index_title_box2{ background: url(../images/index_title_box.gif); width: 308px; height: 32px; line-height: 32px; padding-left: 11px; float: left; font-size: 14px; padding-bottom: 21px; color:#fff}
+.vcc-index_title_box2 a{ color: #fff}
+.vcc-index_title_box_1{ border-bottom: none; position:relative; }
+.vcc-index_title_border{border-bottom: 2px #efefef solid;}
+
+/*tab*/
+.vcc-index_tab{ border-bottom: 2px solid #efefef; width: 100%; margin-bottom: 21px;}
+.vcc-index_tab_main{ width: 960px; margin:0 auto; height:39px; }
+.vcc-index_tab_main ul li{ float: left; padding:0 18px; height: 38px; line-height: 38px;}
+.vcc-index_tab_main ul li.se{ border-bottom: 4px solid #0066b3;}
+.vcc-index_tab_main ul li a{ font-size: 18px; display: block; width: 100%; height: 100%; text-align: center; color:#333;cursor:default;}
+.vcc-index_tab_main ul li.se a{ color: #0066B3}
+.vcc-index_tab_main ul{ float: right}
+.vcc-index_tab_main_div{ width: 100%;}
+.vcc-index_tab_main_div2{ margin-bottom:60px;}
+.vcc-index_tab_main_div_div{ width: 960px; margin: 0 auto; overflow: hidden; display:none;}
+
+/*tab2*/
+.vcc-tab_2{height: 30px; width: 202px;border-bottom: 2px #1693f1 solid;}
+.vcc-tab_2 ul li{padding: 0 15px;float: left; width:28px ; line-height: 30px;font-size: 14px;color: 333333;cursor: pointer;}
+.vcc-tab_2 ul li.se{background: #1693f1;color: #fff;}
+
+/*button*/
+.vvc-button{ padding:0px 24px 0px 24px; height: 30px; line-height: 30px; background: #0066b3; display: block; color: #fff;
+font-size: 14px; border-radius: 6px; text-align: center; cursor: pointer;}
+.vvc-button:hover{ color: #fff; background: #025da2}
+
+.vvc-button1{ padding:0px 23px 0px 23px; height: 30px; line-height: 30px; background: #0066b3; display: block; color: #fff;
+font-size: 14px; border-radius: 6px; text-align: center; cursor: pointer;}
+.vvc-button1:hover{ color: #fff; background: #025da2}
+
+/*search*/
+.vcc-search_1_button{ float: left; width: 25px; height: 28px; background: url(../images/fdj_1.png) center center no-repeat; border:none;}
+.vcc-search_1_text{ border:none; width: 165px; height: 28px; padding-left: 10px; float: left;}
+.vcc-search_1{overflow: hidden; border: 1px solid #0066b3; width: 200px; height: 28px;}
+
+/*当前位置*/
+.vcc-navcation{ width:100%; height:40px; line-height:40px; background:#dbebf7;  position: absolute;   z-index: 9;}
+.vcc-navctaion_box{ width:960px; margin:0 auto; height:40px;}
+.vcc-navctaion_home{ padding-left:284px; font-size:14px; line-height:40px; color:#0066b3; float:left}
+.vcc-navctaion_home img{ vertical-align:middle; margin-right:6px;}
+.vcc-navctaion_go{ float:right; text-align:right;font-size:14px;line-height:40px; }
+.vcc-navctaion_go a{color:#0066b3; }
+
+
+/*分页*/
+.vcc-pagelist{margin:40px auto 0px;font-size:12px;text-align:center; padding-bottom:100px;}
+#next,#one,#btn{background:#0066b3;color:#fff;cursor:pointer;}
+.vcc-pagelist a{padding:4px 10px;margin:0 4px;color:#333;}
+.vcc-pagelist input{width:40px;height:20px;margin:0 2px;border:1px solid #0066b3;}
+.vcc-pagelist a:hover{padding:4px 10px;margin:0 4px;color:#fff;background:#0066b3;}
+.no_b{ border-bottom:none;}
+.f_14_black{    
+color: #fff;
+padding: 4px 10px;
+margin: 0 4px;
+background: #0066b3;
+cursor: text;}

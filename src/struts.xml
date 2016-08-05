@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="creditCard" extends="struts-default" namespace="/CreditCard">
+		<action name="*_*" class="com.ob.action.{1}Action" method="{2}">
+			<!-- 信用卡挂失 -->
+			<result>/CreditCard/cdloss/cdloss.jsp</result>
+			<result name="showCreditCardLoss">/CreditCard/cdloss/showCreditCard.jsp</result>
+			<result name="selectOkLoss">/CreditCard/cdloss/confirmPassword.jsp</result>
+			<result name="confirmFailedLoss">/CreditCard/cdloss/confirmPassword.jsp</result>
+			<result name="confirmSuccessLoss">/CreditCard/cdloss/lossSuccess.jsp</result>
+
+			<!-- 信用卡激活 -->
+			<result name="showCreditCardActive">/CreditCard/cdActive/showCreditCard.jsp</result>
+			<result name="selectOkActive">/CreditCard/cdActive/setDealPassword.jsp</result>
+			<result name="dealPasswordSetFailedActive">/CreditCard/cdActive/setDealPassword.jsp</result>
+			<result name="dealPasswordSetSuccessActive">/CreditCard/cdActive/setSearchPassword.jsp
+			</result>
+			<result name="searchPasswordSetFailedActive">/CreditCard/cdActive/setSearchPassword.jsp
+			</result>
+			<result name="searchPasswordSetSuccessActive">/CreditCard/cdActive/activeSuccess.jsp</result>
+
+			<!-- 信用卡查询密码设置 -->
+			<result name="showCreditCardSearchPasswordSet">/CreditCard/cdSearchPassword/showCreditCard.jsp
+			</result>
+			<result name="selectSearchPassword">/CreditCard/cdSearchPassword/changePassword.jsp
+			</result>
+			<result name="changeSearchPasswordFailed">/CreditCard/cdSearchPassword/changePassword.jsp
+			</result>
+			<result name="changeSearchPasswordSuccess">/CreditCard/cdSearchPassword/changeSearchPasswordSuccess.jsp
+			</result>
+
+			<!-- 信用卡交易密码设置 -->
+			<result name="showCreditCardDealPasswordSet">/CreditCard/cdDealPassword/showCreditCard.jsp
+			</result>
+			<result name="selectChangeDealPassword">/CreditCard/cdDealPassword/changePassword.jsp
+			</result>
+			<result name="selectCancelDealPassword">/CreditCard/cdDealPassword/confirmPassword.jsp
+			</result>
+			<result name="confirmFailedCancelDPWD">/CreditCard/cdDealPassword/confirmPassword.jsp
+			</result>
+			<result name="confirmSuccessCancelDPWD">/CreditCard/cdDealPassword/cancelDPWDSuccess.jsp
+			</result>
+			<result name="selectFaildDealPassword">/CreditCard/cdDealPassword/showCreditCard.jsp
+			</result>
+			<result name="dealPasswordSetFailed">/CreditCard/cdDealPassword/confirmPassword.jsp
+			</result>
+			<result name="dealPasswordSetSuccess">/CreditCard/cdDealPassword/dealPasswordSetSuccess.jsp
+			</result>
+
+			<!-- 信用卡积分显示 -->
+			<result name="showCreditCardIntegration">/CreditCard/cdIntegration/showCreditCard.jsp
+			</result>
+			<result name="selectOkIntegration">/CreditCard/cdIntegration/showIntegration.jsp
+			</result>
+
+			<!-- 信用卡额度查询 -->
+			<result name="showCreditCardSearchLimit">/CreditCard/cdLimit/showCreditCardSearch.jsp
+			</result>
+			<result name="selectOkLimit">/CreditCard/cdLimit/showLimit.jsp</result>
+
+			<!-- 信用卡额度设置 -->
+			<result name="showCreditCardSetLimit">/CreditCard/cdLimit/showCreditCardSet.jsp
+			</result>
+			<result name="selectOkLimitSet">/CreditCard/cdLimit/confirmPassword.jsp</result>
+			<result name="confirmFailedLimit">/CreditCard/cdLimit/confirmPassword.jsp</result>
+			<result name="confirmSuccessLimit">/CreditCard/cdLimit/showLimit.jsp</result>
+
+			<!-- 未出账单查询 -->
+			<result name="showCreditCardBillYet">/CreditCard/cdBillYet/showCreditCard.jsp</result>
+			<result name="selectOkBillYet">/CreditCard/cdBillYet/confirmPassword.jsp
+			</result>
+			<result name="confirmFailedBillYet">/CreditCard/cdBillYet/confirmPassword.jsp
+			</result>
+			<result name="confirmSuccessBillYet">/CreditCard/cdBillYet/displayBillYet.jsp</result>
+
+			<!-- 已出账单查询 -->
+			<result name="showCreditCardBillHave">/CreditCard/cdBillHave/showCreditCard.jsp
+			</result>
+			<result name="selectOkBillHave">/CreditCard/cdBillHave/confirmPassword.jsp
+			</result>
+			<result name="confirmFailedBillHave">/CreditCard/cdBillHave/confirmPassword.jsp
+			</result>
+			<result name="confirmSuccessBillHave">/CreditCard/cdBillHave/displayBillHave.jsp
+			</result>
+
+			<result name="LoginYet">/index.jsp</result>
+		</action>
+	</package>
+
+	<package name="com.login" namespace="/111"
+		extends="struts-default,json-default">
+
+		<action name="login" class="com.ob.action.LoginClientAction"
+			method="login">
+			<result name="SUCCESS">/success.jsp</result>
+			<result name="FAIL">/login.jsp</result>
+		</action>
+
+		<action name="addInfo" class="com.ob.action.SubmitInfoAction"
+			method="addInfo">
+			<result name="SUCCESS">/success.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<action name="selectInfo" class="com.ob.action.SubmitInfoAction"
+			method="selectInfo">
+			<result type="json">jsonstr</result>
+		</action>
+
+		<action name="websiteInfo" class="com.ob.action.WebsiteAction"
+			method="selectInfo">
+			<result type="json">jsonstr</result>
+		</action>
+
+		<action name="dealInfo" class="com.ob.action.DealInfoAction"
+			method="selectDealInfo">
+			<result type="json">jsonstr</result>
+		</action>
+
+		<action name="menuInfo" class="com.ob.action.MenuInfoAction"
+			method="selectMenuInfo">
+			<result type="json">jsonstr</result>
+		</action>
+		
+		<action name="groupLogin" class="com.ob.action.GroupLoginAction" method="groupLogin">
+			<result type="json">jsonstr</result>
+		</action>
+		
+		<action name="selectGroupPar" class="com.ob.action.GroupSelectAction" method="groupParSelect">
+			<result type="json">jsonstr</result>
+		</action>
+		
+		<action name="selectGroupChi" class="com.ob.action.GroupSelectAction" method="groupChiSelect">
+			<result type="json">jsonstr</result>
+		</action>
+		
+		<action name="interest" class="com.ob.action.GroupSelectAction" method="groupMemberSelect">
+			<result type="json">jsonstr</result>
+		</action>
+		
+		<action name="back" class="com.ob.action.GroupManageAction" method="groupMemberBack">
+			<result type="json">jsonstr</result>
+		</action>
+		
+		<action name="correct" class="com.ob.action.GroupManageAction" method="groupMemberCorrect">
+			<result type="json">jsonstr</result>
+		</action>
+
+	</package>
+
+	<package name="accountService" namespace="/AccountService"
+		extends="struts-default">
+		<action name="*_*" class="com.ob.action.{1}" method="{2}">
+			<!-- 储蓄卡挂失 -->
+
+			<result name="zhangdabenshowAccount">/AccountService/AccountLoss/showAccount.jsp
+			</result>
+			<result name="zhangdabenselectOkLoss">/AccountService/AccountLoss/confirmPassword.jsp
+			</result>
+			<result name="zhangdabenconfirmFailedLoss">/AccountService/AccountLoss/confirmPassword.jsp
+			</result>
+			<result name="zhangdabenconfirmSuccessLoss">/AccountService/AccountLoss/Successloss.jsp
+			</result>
+
+			<!-- 交易密码设置 -->
+			<result name="showAccountDealPasswordSet">/AccountService/AccountDealPsswordSet/showAccount.jsp
+			</result>
+			<result name="selectOkDealPassword">/AccountService/AccountDealPsswordSet/confirmPassword.jsp
+			</result>
+			<result name="dealPasswordSetFailed">/AccountService/AccountDealPsswordSet/confirmPassword.jsp
+			</result>
+			<result name="dealPasswordSetSuccess">/AccountService/AccountDealPsswordSet/dealPasswordSetSuccess.jsp
+			</result>
+			<!-- input：当类型转换错误是返回input -->
+			<result name="input">/login.jsp</result>
+
+			<!-- 储蓄卡账号查询 -->
+			<result name="showAllAccountInform">/AccountService/AccountInformation/showAllAccount.jsp
+			</result>
+
+
+			<!-- 储蓄卡账户交易查询 -->
+			<result name="showAccountInform">/AccountService/AccountDealInformation/showAccount.jsp
+			</result>
+			<result name="selectOkAccount">/AccountService/AccountDealInformation/showAccountInform.jsp
+			</result>
+			<result name="showDealInform">/AccountService/AccountDealInformation/showDealiInformation.jsp
+			</result>
+
+			<!-- 账户别名设置 -->
+			<result name="showSignAccount">/AccountService/SignAccountOtherNameSet/showAccountSign.jsp
+			</result>
+			<result name="selectOkSignAccount">/AccountService/SignAccountOtherNameSet/othername.jsp
+			</result>
+			<result name="issuccess">/AccountService/SignAccountOtherNameSet/showDealiInformationError.jsp
+			</result>
+
+			<!-- 储蓄卡网上交易信息查询 -->
+			<result name="showAccountIsOpenInform">/AccountService/AccountInformation/ShowAccountIsOpen.jsp
+			</result>
+			<result name="selectOkAccountIsopen">/AccountService/AccountInformation/showAccountInform.jsp
+			</result>
+			<result name="showDealInformIsOpen">/AccountService/AccountInformation/showDealInform.jsp
+			</result>
+
+			<!-- 代付工资 -->
+			<result name="showCompanyAccount">/AccountService/salaryProvide/selectAccountIsOpen.jsp</result>
+			<result name="success">/AccountService/salaryProvide/documentUploading.jsp</result>
+			<result name="SalaryProvidingFailed">/AccountService/salaryProvide/salaryProvidingFailed.jsp</result>
+			<result name="selectSalaryProviding">/AccountService/salaryProvide/salaryProvidingSuccess.jsp
+			</result>
+
+			<result name="LoginYet">/index.jsp</result>
+		</action>
+	</package>
+
+	<!-- 王子骄 -->
+	<package name="payment" namespace="/" extends="struts-default">
+
+		<action name="paymentService" method="doPayment"
+			class="com.ob.action.PaymentAction">
+			<result name="paymentSuccess">/Payment/paymentSuccess.jsp</result>
+			<result name="transferAmountLess">/Payment/transferAmountLess.jsp</result>
+			<result name="transferPasswordError">/Payment/transferPasswordError.jsp</result>
+		</action>
+
+		<action name="transferOutService" method="doPaymentTransferOut"
+			class="com.ob.action.PaymentAction">
+			<result name="paymentSuccess">/Payment/paymentSuccess.jsp</result>
+			<result name="transferAmountLess">/Payment/transferAmountLess.jsp</result>
+			<result name="transferPasswordError">/Payment/transferPasswordError.jsp</result>
+		</action>
+
+		<action name="browseDealinform" method="browseDealinform"
+			class="com.ob.action.PaymentAction">
+			<result name="success">/Payment/PaymentQuery.jsp</result>
+		</action>
+
+		<action name="browseTranfer" method="showTransferInfo"
+			class="com.ob.action.PaymentAction">
+			<result name="success">/Payment/TransferQuery.jsp</result>
+		</action>
+
+		<action name="showTransfer" method="showTransferInfo"
+			class="com.ob.action.TransferAction">
+			<result name="success">/Payment/TransfeiPage.jsp</result>
+			<result name="LoginYet">/index.jsp</result>
+		</action>
+
+		<action name="showTransferOut" method="showTransferInfo"
+			class="com.ob.action.TransferAction">
+			<result name="success">/Payment/TransferPageOut.jsp</result>
+			<result name="LoginYet">/index.jsp</result>
+		</action>
+
+
+		<action name="transferService" method="doTransferIn"
+			class="com.ob.action.PaymentAction">
+			<result name="transferSuccess">/Payment/paymentSuccess.jsp</result>
+			<result name="transferAmountLess">/Payment/transferAmountLess.jsp</result>
+			<result name="transferPasswordError">/Payment/transferPasswordError.jsp</result>
+		</action>
+	</package>
+
+	<!-- 张涛 -->
+	<package name="ManagerAction" namespace="/ManagerAction"
+		extends="struts-default">
+		<!-- ManagerAction.ManagerAction _login method="login" -->
+		<action name="*_*" class="ManagerAction.{1}Action" method="{2}">
+			<result name="ManagerLogin_success">/ManagerOperaterLogin_success.jsp
+			</result>
+			<result name="ManagerLogin_failure">/ManagerOperaterLogin.jsp
+			</result>
+			<result name="logout_success">/ManagerOperaterLogin.jsp</result>
+			<result name="input">/ManagerOperaterLogin.jsp</result>
+			<result name="changePW_success">/changePW_success.jsp</result>
+			<result name="changePW_failure">/ManagerOperaterLogin_success.jsp</result>
+			<result name="changePW_failure1">/M_changgePW_failure1.jsp</result>
+			<result name="changePW_failure2">/M_changgePW_failure2.jsp</result>
+
+		</action>
+
+	</package>
+
+	<package name="OperaterAction" namespace="/OperaterAction"
+		extends="struts-default">
+		<action name="*_*" class="OperaterAction.{1}Action" method="{2}">
+			<result name="showall_success">/Opershowallsuccess.jsp</result>
+			<result name="showall_failure">/Opershowallsuccess.jsp</result>
+			<result name="delete_success">/Deletesuccess.jsp</result>
+			<result name="delete_failure">/Deletesuccess.jsp</result>
+			<result name="add_success">/Operater_add_success.jsp</result>
+			<result name="OresetPW_success">/Operater_resetPW_success.jsp</result>
+			<result name="Oselect_success">/O_select_success.jsp</result>
+			<result name="Oselect_failure">/O_select_failure.jsp</result>
+		</action>
+	</package>
+
+	<package name="jxl.tablemaker.action " namespace="/tablemaker"
+		extends="struts-default">
+		<action name="*_*" class="jxl.tablemaker.action.{1}Action"
+			method="{2}">
+			<result name="dealmake_success">/Jxlbasictabledeal.jsp</result>
+			<result name="appoint_success">/Jxlexpecttable.jsp</result>
+
+		</action>
+	</package>
+
+	<package name="SystemParrateAction" namespace="/SystemParrateAction"
+		extends="struts-default">
+		<action name="*_*" class="SystemParrateAction.{1}Action"
+			method="{2}">
+			<result name="loanshow_success">/SysPar_Loanshow.jsp</result>
+			<result name="depositshow_success">/SysPar_depositshow.jsp</result>
+			<result name="bigdeallist_success">/SysPar_bigdealshow.jsp</result>
+			<result name="loanupdaterequest_success">/loanupdaterequest_success.jsp</result>
+			<result name="loanupdateresponse_success">/SysPar_Loanshow.jsp</result>
+			<result name="rolelist_success">/SysPar_roleauth.jsp</result>
+			<result name="bigdealdaterequest_success">/bigdealdaterequest_success.jsp</result>
+			<result name="depositupdaterequest_success">/depositupdaterequest_success.jsp</result>
+			<result name="roleupdaterequest_success">/roleupdaterequest_success.jsp</result>
+		</action>
+	</package>
+</struts>    

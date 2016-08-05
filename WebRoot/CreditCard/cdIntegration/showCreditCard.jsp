@@ -18,7 +18,7 @@
 					<li><a href="#">确认查询密码</a></li>
 					<li><a href="#">查询成功</a></li>
 				</ul>
-				<form action="<%=basePath%>CreditCard/CreditcardIntegration_selectCard.action" id="form">
+				<form action="<%=basePath%>CreditCard/CreditcardIntegration_selectCard.action" id="form" method="post">
 					请选择你所要查询积分的信用卡: <select name="selectCd" class="form-control">
 						<c:forEach items="${request.accountIdList}" var="li">
 							<option>${li}</option>

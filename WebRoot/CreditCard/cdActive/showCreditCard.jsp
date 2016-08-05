@@ -19,7 +19,7 @@
 					<li><a href="#">激活成功</a></li>
 				</ul>
 				<form action="<%=basePath%>CreditCard/CreditcardActive_selectCard.action"
-					id="form">
+					id="form" method="post">
 					请选择你未激活的信用卡: <select name="selectCd" class="form-control">
 						<c:forEach items="${request.accountIdList}" var="li">
 							<option>${li}</option>

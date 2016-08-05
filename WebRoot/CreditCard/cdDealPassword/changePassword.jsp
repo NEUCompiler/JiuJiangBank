@@ -22,7 +22,7 @@
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<form class="form-horizontal" role="form"
-					action="<%=basePath%>CreditCard/CreditcardDealPasswordSet_setPassword.action">
+					action="<%=basePath%>CreditCard/CreditcardDealPasswordSet_setPassword.action" method="post">
 					<div class="form-group">
 						<label for="dealpassword" class="col-sm-2 control-label">请输入你当前的交易密码:</label>
 						<div class="col-sm-10">

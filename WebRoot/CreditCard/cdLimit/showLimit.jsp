@@ -21,8 +21,19 @@
 		</div>
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<p>信用卡:${sessionScope.creditcard}</p>
-				<p>可用额度:${request.cdLimit}</p>
+			<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>信用卡</th>
+							<th>可用额度</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>${sessionScope.creditcard}</td>
+							<td>${request.cdLimit}</td>
+						</tr>
+				</table>
 			</div>
 		</div>
 	</div>

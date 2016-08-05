@@ -24,7 +24,7 @@
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<form class="form-horizontal" role="form"
-					action=CreditcardActive_setDealPassword.action>
+					action=CreditcardActive_setDealPassword.action method="post">
 					<div class="form-group">
 						<label for="dealPassword" class="col-sm-2 control-label">请设置交易密码:</label>
 						<div class="col-sm-10">

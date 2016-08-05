@@ -18,7 +18,7 @@
 					<li><a href="#">确认网银密码</a></li>
 					<li><a href="#">可用额度设置成功</a></li>
 				</ul>
-				<form action="<%=basePath%>CreditCard/CreditcardLimitSet_selectCard.action" id="form">
+				<form action="<%=basePath%>CreditCard/CreditcardLimitSet_selectCard.action" id="form" method="post">
 					请选择你所要设置可用额度的信用卡: <select name="selectCd" class="form-control">
 						<c:forEach items="${request.accountIdList}" var="li">
 							<option>${li}</option>

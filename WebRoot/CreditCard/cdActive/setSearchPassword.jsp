@@ -25,7 +25,7 @@
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<form class="form-horizontal" role="form"
-					action="<%=basePath%>CreditCard/CreditcardActive_setSearchPassword.action">
+					action="<%=basePath%>CreditCard/CreditcardActive_setSearchPassword.action" method="post">
 					<div class="form-group">
 						<label for="searchPassword" class="col-sm-2 control-label">请设置查询密码:</label>
 						<div class="col-sm-10">

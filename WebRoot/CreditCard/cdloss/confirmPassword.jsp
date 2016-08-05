@@ -13,7 +13,7 @@
 			<div class="col-md-12 column">
 				<ul class="breadcrumb">
 					<li><a href="#">信用卡挂失</a></li>
-					<li><a href="<%=basePath%>CreditCard/CreditcardLoss_showCreditCard.action">选择未挂失的信用卡</a></li>
+					<li><a href="<%=basePath%>CreditCard/CreditcardLoss_showCreditCard.action" method="post">选择未挂失的信用卡</a></li>
 					<li class="active">确认网银密码</li>
 					<li><a href="#">挂失成功</a></li>
 				</ul>
@@ -22,7 +22,7 @@
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<form class="form-horizontal" role="form"
-					action="<%=basePath%>CreditCard/CreditcardLoss_confirmPassword.action">
+					action="<%=basePath%>CreditCard/CreditcardLoss_confirmPassword.action" method="post">
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-2 control-label">请输入网银密码:</label>
 						<div class="col-sm-10">

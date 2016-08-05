@@ -22,7 +22,7 @@
 			</div>
 			<div class="col-md-12 column">
 				<form class="form-horizontal" role="form"
-					action="<%=basePath%>CreditCard/CreditcardSearchPasswordSet_setPassword.action">
+					action="<%=basePath%>CreditCard/CreditcardSearchPasswordSet_setPassword.action" method="post">
 					<div class="form-group">
 						<label for="searchpassword" class="col-sm-2 control-label">请输入你当前的查询密码:</label>
 						<div class="col-sm-10">

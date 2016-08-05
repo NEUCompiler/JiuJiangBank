@@ -21,8 +21,19 @@
 		</div>
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<p>信用卡:${sessionScope.creditcard}</p>
-				<p>积分:${request.integration}</p>
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>信用卡</th>
+							<th>积分</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>${sessionScope.creditcard}</td>
+							<td>${request.integration}</td>
+						</tr>
+				</table>
 			</div>
 		</div>
 	</div>

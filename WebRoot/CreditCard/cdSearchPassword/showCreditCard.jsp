@@ -19,7 +19,7 @@
 					<li><a href="#">查询密码修改成功</a></li>
 				</ul>
 				<form action="<%=basePath%>CreditCard/CreditcardSearchPasswordSet_selectCard.action"
-					id="form">
+					id="form" method="post">
 					请选择信用卡: <select name="selectCd" class="form-control">
 						<c:forEach items="${request.accountIdList}" var="li">
 							<option>${li}</option>

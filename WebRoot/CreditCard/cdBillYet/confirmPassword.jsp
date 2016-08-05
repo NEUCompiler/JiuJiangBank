@@ -22,7 +22,7 @@
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<form class="form-horizontal" role="form"
-					action="<%=basePath%>CreditCard/CreditCardBillYet_confirmPassword.action">
+					action="<%=basePath%>CreditCard/CreditCardBillYet_confirmPassword.action" method="post">
 					<div class="form-group">
 						<label for="searchPassword" class="col-sm-2 control-label">请输入查询密码:</label>
 						<div class="col-sm-10">

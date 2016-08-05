@@ -43,7 +43,7 @@
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown">个人业务<strong class="caret"></strong></a>
 									<ul class="dropdown-menu">
-										<li><a href="#">网银注册</a></li>
+										<li><a href="<%=basePath%>login.jsp">网银注册</a></li>
 										<li class="divider"></li>
 										<li><a href="#">客户服务</a></li>
 										<li><a href="<%=basePath%>AccountService/index.jsp">账户服务</a></li>

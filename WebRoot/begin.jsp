@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>中国建设银行 个人网上银行</title>
+    <title>九江银行 个人网上银行</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   
       <div>
-        <img class="f1style" src="img/bank.png" />
+        <img class="f1style" src="image/logo.png" />
     </div>
     <p class="fstyle">中国建设银行普通客户开通</p>  
     <div id="parent">

@@ -11,10 +11,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.ob.action.SuperAction;
 import com.ob.model.Client;
 import com.opensymphony.xwork2.ActionContext;
 
-public class loginTest {
+public class loginTest extends SuperAction{
 	private int clientid;
 	private int identityid;
 	private String truename;
@@ -106,7 +107,7 @@ public class loginTest {
     	}else{
     			Client pw = (Client)iter.next();
 	    		if(pw.getUserPassword().equals(userpassword)){
-	    			
+	    			session.setAttribute("clientId", pw.getClientId());
 	    		ActionContext.getContext().getSession().put("user", getUsername());
 	    		ActionContext.getContext().getSession().put("password",getUserpassword());	
 	    			return "success";

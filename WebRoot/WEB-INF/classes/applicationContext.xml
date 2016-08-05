@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/onlinebanking">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/ob/model/Account.hbm.xml</value>
+				<value>com/ob/model/Client.hbm.xml</value>
+				<value>com/ob/model/Dealinform.hbm.xml</value>
+				<value>com/ob/model/Clientsubmitinfo.hbm.xml</value>
+				<value>com/ob/model/Companyclient.hbm.xml</value>
+				<value>com/ob/model/Companyaccount.hbm.xml</value>
+				<value>com/manager/ManagerOperater.hbm.xml</value>
+			    <value>Operater/db/Operater.hbm.xml</value> 
+			    <value>System/Par/rate/Loan.hbm.xml</value>
+			    <value>System/Par/rate/Deposit.hbm.xml</value>
+			    <value>System/Par/bigdeal/Bigdeal.hbm.xml</value>
+			    <value>System/Par/rate/MRole.hbm.xml</value>
+			    <value>System/Par/rate/MAu.hbm.xml</value>
+			    <value>jxl/tablemaker/db/Appointment.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="accountDAO" class="com.ob.dao.impl.AccountDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="clientDAO" class="com.ob.dao.impl.ClientDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="dealinformDAO" class="com.ob.dao.impl.DealinformDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ClientsubmitinfoDAO" class="com.ob.dao.impl.ClientsubmitinfoDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="companyclientDAO" class="com.ob.dao.impl.CompanyclientDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="companyaccountDAO" class="com.ob.dao.impl.CompanyaccountDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="accountService" class="com.ob.service.impl.AccountServiceImpl"
+		scope="singleton">
+		<property name="dao" ref="accountDAO" />
+		<property name="clientDAO" ref="clientDAO" />
+		<property name="dealinformDAO" ref="dealinformDAO" />
+	</bean>
+	<bean id="clientService" class="com.ob.service.impl.ClientServiceImpl"
+		scope="singleton">
+		<property name="clientDAO" ref="clientDAO" />
+		<property name="dao" ref="accountDAO" />
+	</bean>
+	<bean id="dealinformService" class="com.ob.service.impl.DealinformServiceImpl"
+		scope="singleton">
+		<property name="dealinformDAO" ref="dealinformDAO" />
+	</bean>
+	<bean id="companyclientService" class="com.ob.service.impl.CompanyclientServiceImpl"
+		scope="singleton">
+		<property name="companyclientDAO" ref="companyclientDAO" />
+	</bean>
+	<bean id="companyaccountService" class="com.ob.service.impl.CompanyaccountServiceImpl"
+		scope="singleton">
+		<property name="companyaccountDAO" ref="companyaccountDAO" />
+	</bean>
+	<bean id="paymentService" class="com.ob.service.impl.PaymentServiceimpl">
+		<property name="dealinformDAO" ref="dealinformDAO"></property>
+	</bean>
+	<bean id="transferService" class="com.ob.service.impl.TransferServiceimpl">
+		<property name="accountDAO" ref="accountDAO"></property>
+	</bean>
+	<bean id="creadicardLossAction" class="com.ob.action.CreditcardLossAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="creditcardIntegrationAction" class="com.ob.action.CreditcardIntegrationAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="credicardLimitSearchAction" class="com.ob.action.CreditcardLimitSearchAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="credicardLimitSetAction" class="com.ob.action.CreditcardLimitSetAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="creditcardActiveAction" class="com.ob.action.CreditcardActiveAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="credicardDealPasswordSetAction" class="com.ob.action.CreditcardDealPasswordSetAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="credicardSearchPasswordSetAction" class="com.ob.action.CreditcardSearchPasswordSetAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="creditCardBillYetAction" class="com.ob.action.CreditCardBillYetAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+		<property name="dealinformService" ref="dealinformService"></property>
+	</bean>
+	<bean id="creditCardBillHaveAction" class="com.ob.action.CreditCardBillHaveAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+		<property name="dealinformService" ref="dealinformService"></property>
+	</bean>
+	<bean id="AccountLossAction" class="com.ob.action.AccountLossAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="AccountDealPasswordAction" class="com.ob.action.AccountDealPasswordSetAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+	</bean>
+	<bean id="AccountInformation" class="com.ob.action.AccountInformationAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+		<property name="clientService" ref="clientService"></property>
+	</bean>
+	<bean id="companyClientLoginAction" class="com.ob.action.CompanyClientLoginAction"
+		scope="prototype">
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceChangePasswordAction" class="com.ob.action.CompanyAccountServiceChangePasswordAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceLossAction" class="com.ob.action.CompanyAccountServiceLossAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceAddAction" class="com.ob.action.CompanyAccountServiceAddAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="companyAccountServiceDeleteAction" class="com.ob.action.CompanyAccountServiceDeleteAction"
+		scope="prototype">
+		<property name="companyaccountService" ref="companyaccountService"></property>
+		<property name="companyclientService" ref="companyclientService"></property>
+	</bean>
+	<bean id="paymentAction" class="com.ob.action.PaymentAction">
+		<property name="paymentService" ref="paymentService"></property>
+	</bean>
+	<bean id="transferAction" class="com.ob.action.TransferAction">
+		<property name="transferService" ref="transferService"></property>
+	</bean>
+	
+	
+	<!-- 张涛 -->
+	<bean id="ManagerOperaterDAO" class="com.manager.ManagerOperaterDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="OperaterDAO" class="Operater.db.OperaterDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="DealinformDAO" class="jxl.tablemaker.db.DealinformDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="LoanDAO" class="System.Par.rate.LoanDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="DepositDAO" class="System.Par.rate.DepositDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="BigdealDAO" class="System.Par.bigdeal.BigdealDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MRoleDAO" class="System.Par.rate.MRoleDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MAuDAO" class="System.Par.rate.MAuDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+
+	</bean>
+	<bean id="AppointmentDAO" class="jxl.tablemaker.db.AppointmentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SalaryProviding" class="com.ob.action.SalaryProvidingAction"
+		scope="prototype">
+		<property name="accountService" ref="accountService"></property>
+		<property name="dealinformService" ref="dealinformService"></property>
+	</bean>
+	
+</beans>

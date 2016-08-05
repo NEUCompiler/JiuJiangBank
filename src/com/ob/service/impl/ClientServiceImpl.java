@@ -6,15 +6,20 @@ import com.ob.service.ClientService;
 
 public class ClientServiceImpl implements ClientService {
 	private ClientDAO clientDAO;
-	private AccountDAO dao;
+	private AccountDAO accountDAO;
 	public void setClientDAO(ClientDAO clientDAO) {
 		this.clientDAO = clientDAO;
 	}
+	
+	public ClientDAO getClientDAO() {
+		return clientDAO;
+	}
+
 	public AccountDAO getAccountDao() {
-		return dao;
+		return accountDAO;
 	}
 	
-	public void setDao(AccountDAO dao) {
-		this.dao = dao;
+	public void setDao(AccountDAO accountDAO) {
+		this.accountDAO = accountDAO;
 	}
 }

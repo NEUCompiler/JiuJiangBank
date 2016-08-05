@@ -14,7 +14,7 @@
 					<ul class="breadcrumb">
 						<li><a href="#">信用卡可用额度设置</a></li>
 						<li><a href="<%=basePath%>CreditCard/CreditcardLimitSet_showCreditCard.action">选择设置的信用卡</a></li>
-						<li class="active">确认网银密码</li>
+						<li class="active">确认查询密码</li>
 						<li><a href="#">可用额度设置成功</a></li>
 					</ul>
 				</div>
@@ -22,12 +22,12 @@
 			<div class="row clearfix">
 				<div class="col-md-12 column">
 					<form class="form-horizontal" role="form"
-						action="<%=basePath%>CreditCard/CreditcardLimitSet_confirmPassword.action" method="post">
+						action="<%=basePath%>CreditCard/CreditcardLimitSearch_confirmPassword.action" method="post">
 						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-2 control-label">请输入网银密码:</label>
+							<label for="searchPassword" class="col-sm-2 control-label">请输入查询密码:</label>
 							<div class="col-sm-10">
-								<input class="form-control" id="accountPassword" type="password"
-									name="accountPassword" />
+								<input class="form-control" id="searchPassword" type="password"
+									name="searchPassword" />
 							</div>
 						</div>
 						<div class="col-md-12 column">${request.info}</div>

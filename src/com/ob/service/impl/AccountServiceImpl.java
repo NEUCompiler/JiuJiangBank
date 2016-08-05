@@ -71,7 +71,10 @@ public class AccountServiceImpl implements  AccountService {
 		ArrayList<Account> accounts = (ArrayList<Account>)dao.findByClientid(account.getClientid());
 		
 		for (Account item : accounts) {
-			accountIdList.add(item.getAccountid());
+			if (item.getCdlimit() > 0) {
+				accountIdList.add(item.getAccountid());
+			}
+			
 		}
 		
 		return accountIdList;
@@ -100,7 +103,7 @@ public class AccountServiceImpl implements  AccountService {
 		
 		for (Account item : accounts) {
 			
-			if (item.getIsactive() == 1) {
+			if ((item.getIsactive()==1) && (item.getCdlimit()>0)) {
 				accountIdList.add(item.getAccountid());
 			}
 		}
@@ -115,7 +118,7 @@ public class AccountServiceImpl implements  AccountService {
 		
 		for (Account item : accounts) {
 			
-			if (item.getIsactive() == 0) {
+			if ((item.getIsactive()==0) && (item.getCdlimit()>0)) {
 				accountIdList.add(item.getAccountid());
 			}
 		}
@@ -129,7 +132,7 @@ public class AccountServiceImpl implements  AccountService {
 		ArrayList<Account> accounts = (ArrayList<Account>)dao.findByClientid(account.getClientid());
 		
 		for (Account item : accounts) {
-			if (item.getDealwithoutpassword() == 0) {
+			if ((item.getDealwithoutpassword()==0) &&(item.getCdlimit()>0)) {
 				accountIdList.add(item.getAccountid());
 			}
 		}
@@ -137,7 +140,7 @@ public class AccountServiceImpl implements  AccountService {
 	}
 	
 	/**
-	 * ȷ���������롣
+	 *
 	 */
 	@Override
 	public boolean confirmSearchPassword(Client client) {
@@ -148,7 +151,7 @@ public class AccountServiceImpl implements  AccountService {
 	}
 	
 	/**
-	 * ȷ�����ÿ���ѯ���롣
+	 *
 	 */
 	@Override
 	public boolean confirmCDSearchPassword(Account account) {
@@ -161,7 +164,7 @@ public class AccountServiceImpl implements  AccountService {
 	}
 
 	/**
-	 * ��ѯ��֡�
+	 * 
 	 */
 	@Override
 	public Integer getIntegration(Account account) {
@@ -169,7 +172,7 @@ public class AccountServiceImpl implements  AccountService {
 	}
 
 	/**
-	 * ���ö�Ȳ�ѯ��
+	 * 
 	 */
 	@Override
 	public Integer getLimit(Account account) {
@@ -177,7 +180,7 @@ public class AccountServiceImpl implements  AccountService {
 	}
 
 	/**
-	 * ���ö�����á�
+	 * ���ö�ȡ�
 	 */
 	@Override
 	public boolean setLimit(Account account) {

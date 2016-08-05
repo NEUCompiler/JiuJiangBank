@@ -51,11 +51,19 @@
 			<!-- 信用卡积分显示 -->
 			<result name="showCreditCardIntegration">/CreditCard/cdIntegration/showCreditCard.jsp
 			</result>
+			<result name="selectCardSuccessIntegration">/CreditCard/cdIntegration/confirmPassword.jsp
+			</result>
+			<result name="confirmFailedIntegration">/CreditCard/cdIntegration/confirmPassword.jsp
+			</result>
 			<result name="selectOkIntegration">/CreditCard/cdIntegration/showIntegration.jsp
 			</result>
 
 			<!-- 信用卡额度查询 -->
 			<result name="showCreditCardSearchLimit">/CreditCard/cdLimit/showCreditCardSearch.jsp
+			</result>
+			<result name="selectCardSearchLimitSuccess">/CreditCard/cdLimit/comfirmSearchPassword.jsp
+			</result>
+			<result name="confirmFailedSearchLimit">/CreditCard/cdLimit/comfirmSearchPassword.jsp
 			</result>
 			<result name="selectOkLimit">/CreditCard/cdLimit/showLimit.jsp</result>
 

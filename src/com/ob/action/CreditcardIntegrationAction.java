@@ -22,10 +22,29 @@ public class CreditcardIntegrationAction extends SuperAction implements
 	 * @return
 	 */
 	public String search() {
-		account.setAccountid(request.getParameter("selectCd").toString());
+		account.setAccountid(session.getAttribute("creditcard").toString());
 		request.setAttribute("integration", accountService.getIntegration(account));
 		
 		return "selectOkIntegration";
+	}
+	
+	/**
+	 * √‹¬Î»∑»œ°£
+	 * @return
+	 */
+	public String confirmPassword() {
+		if (session.getAttribute("clientId") == null) {
+			return "LoginYet";
+		}
+		String searchPassword = request.getParameter("searchPassword");
+		account = accountService.getDao().findById(session.getAttribute("creditcard").toString());
+			
+		if (!searchPassword.equals(account.getSearchpassword())) {
+			request.setAttribute("info", "≤È—Ø√‹¬Î¥ÌŒÛ");
+			return "confirmFailedIntegration";
+		}
+		
+		return search();
 	}
 	
 	/**
@@ -48,7 +67,7 @@ public class CreditcardIntegrationAction extends SuperAction implements
 	public String selectCard() {
 		session.setAttribute("creditcard", request.getParameter("selectCd"));
 		
-		return search();
+		return "selectCardSuccessIntegration";
 	}
 	
 	

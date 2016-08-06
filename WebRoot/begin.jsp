@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   
       <div>
-        <img class="f1style" src="image/logo.png" />
+        <img class="f1style" src="img/bank.png" />
     </div>
     <p class="fstyle">中国建设银行普通客户开通</p>  
     <div id="parent">
@@ -231,7 +231,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             btn1.onclick=function(){
                  console.log("216"+value)
                    
-                        window.location.href="login.jsp";
+                        window.location.href="register.jsp";
                  }
             btn2.onclick=function (){
                 alert("拒绝开通网上银行");

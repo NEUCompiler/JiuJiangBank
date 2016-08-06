@@ -70,11 +70,14 @@ public class AccountInformationAction extends SuperAction implements
 	}
 
 	public String showAllAccount() {
-		client.setClientId(111);
+		if (session.getAttribute("clientId") == null) {
+			return "LoginYet";
+		}
+		Integer.parseInt(session.getAttribute("clientId").toString());
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		ArrayList<Account> accountLista = new ArrayList<Account>();
 		ArrayList<Account> accountListb = new ArrayList<Account>();
-		accountList = (ArrayList<Account>) clientService.getAccountDao().findByClientid(client.getClientId());
+		accountList = (ArrayList<Account>) clientService.getAccountDao().findByClientid(Integer.parseInt(session.getAttribute("clientId").toString()));
 		for (com.ob.model.Account item : accountList) {
 			if (item.getCdlimit() > 0) {
 				accountLista.add(item);

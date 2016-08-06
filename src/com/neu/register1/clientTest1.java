@@ -6,11 +6,14 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import antlr.collections.List;
 
 import com.ob.model.Account;
 import com.ob.model.Client;
@@ -177,15 +180,36 @@ public class clientTest1 extends ActionSupport{
 
 	public String registerBase1(){
 		jsonstr="";
-		ApplicationContext c1 = new ClassPathXmlApplicationContext("applicationContext.xml");  
+		System.out.println("1111");
+		return insert();
+		
+}
+
+	private synchronized String insert() {
+		ApplicationContext c1 = new ClassPathXmlApplicationContext("applicationContext.xml"); 
 		SessionFactory sf1 = (SessionFactory) c1.getBean("sessionFactory");
 		Session session1 = sf1.openSession();
 		
 /*		Query query =  session1.createQuery("from Client WHERE username = ?");
 		query.setString(0, username+"");
 		java.util.List Client;*/
-		
-		
+		Query querytset=session1.createQuery("from Account where accountid=? and isopenob =1");
+		querytset.setString(0,accounti);
+		try {
+			java.util.List list=(java.util.List) querytset.list();
+			System.out.println(list.size());
+			if (list.size()>0) {
+				String str="GoSuccess.jsp";
+				jsonstr=str;
+				return SUCCESS;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			String str="GoSuccess.jsp";
+			jsonstr=str;
+			return SUCCESS;
+		}
 		Query query1=session1.createQuery("from Client");
 		
 		java.util.List Client1;
@@ -193,7 +217,9 @@ public class clientTest1 extends ActionSupport{
 			Client1 = query1.list();
 		}catch(Exception e){
 			e.printStackTrace();
-			return "fail";
+			String str="GoSuccess.jsp";
+			jsonstr=str;
+			return SUCCESS;
 		}
 	
     	Iterator iter1 = Client1.iterator();
@@ -230,7 +256,16 @@ public class clientTest1 extends ActionSupport{
 				s.setUserPassword(userpassword);
 				
 				session1.beginTransaction();
-				session1.save(s);
+				try {
+					session1.save(s);
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+					String str="GoSuccess.jsp";
+					jsonstr=str;
+					return SUCCESS;
+				}
+				
 				session1.getTransaction().commit();
 								
 				Query query2 = session1.createSQLQuery("update Account set sign= 1 where identityid = ?");  
@@ -249,7 +284,9 @@ public class clientTest1 extends ActionSupport{
 					e.printStackTrace();
 					session1.close();
 					sf1.close(); 
-					return "fail";
+					String str="GoSuccess.jsp";
+					jsonstr=str;
+					return SUCCESS;
 				}
 
 		    	Iterator iter = client.iterator();
@@ -278,8 +315,7 @@ public class clientTest1 extends ActionSupport{
 				String str="login1.jsp";
 				jsonstr=str;
 				return SUCCESS;
-		
-}
+	}
 		
 	
 	public String username(){

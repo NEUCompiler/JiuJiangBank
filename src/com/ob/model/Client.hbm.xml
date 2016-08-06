@@ -8,7 +8,7 @@
     <class name="Client" table="client" catalog="onlinebanking">
         <id name="clientId" type="java.lang.Integer">
             <column name="ClientId" />
-            <generator class="identity" />
+            
         </id>
         <property name="identityId" type="java.lang.String">
             <column name="IdentityId" length="18" not-null="true" unique="true" />

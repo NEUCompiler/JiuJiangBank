@@ -28,7 +28,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<li><a href="showTransfer.action">行内转帐</a></li>
     	<li><a href="showTransferOut.action">跨行转账</a></li>
     	<li><a href="Payment/TransferQuery.jsp">转帐查询</a></li>
-    	<li><a href="">收款人名册管理</a></li>
     </ol>
   </body>
 </html>

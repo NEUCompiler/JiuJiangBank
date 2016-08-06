@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script type="text/javascript">
   function download() {
-   window.location.href = "zsta.xls";
+   window.location.href = "<%=basePath%>AccountService/zsta.xls";
   }
 </script>
   

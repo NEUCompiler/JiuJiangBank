@@ -77,7 +77,7 @@ public class PaymentAction extends ActionSupport {
 		String dealid = UUID.randomUUID().toString();
 		
 		if(dpw == dealpassword){
-			if(dealinform.getDeaamountl() < am){
+			if(dealinform.getDeaamountl() <= am){
 				dealinform1.setAccountid(dealinform.getAccountid());
 				dealinform1.setDeaamountl(dealinform.getDeaamountl());
 				dealinform1.setDealDesti(dealinform.getDealDesti());
@@ -146,7 +146,7 @@ public class PaymentAction extends ActionSupport {
 		String dealid2 = UUID.randomUUID().toString();
 		
 		if(dpw == dealpassword){
-			if(dealinform.getDeaamountl() < am){
+			if(dealinform.getDeaamountl() <= am){
 				dealinform1.setAccountid(dealinform.getAccountid());
 				dealinform1.setDeaamountl(dealinform.getDeaamountl());
 				dealinform1.setDealDesti(dealinform.getDealDesti());
@@ -204,7 +204,7 @@ public class PaymentAction extends ActionSupport {
 		String dealid = UUID.randomUUID().toString();
 		
 		if(dpw == dealpassword){
-			if(dealinform.getDeaamountl() < am){
+			if(dealinform.getDeaamountl() <= am){
 				dealinform1.setAccountid(dealinform.getAccountid());
 				dealinform1.setDeaamountl(dealinform.getDeaamountl());
 				dealinform1.setDealDesti(dealinform.getDealDesti());

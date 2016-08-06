@@ -225,7 +225,7 @@ public class ClientsubmitinfoDAOImpl implements ClientsubmitinfoDAO {
 	
 	public List sqlSelectDealInfo(String option) throws Exception{
 		Session s = null;
-		String sql = "select accountid,dealtime,dealinform,dealtype,dealDesti,dealstate,dealamount from onlinebanking.dealinform where dealid=?";
+		String sql = "select accountid,dealtime,dealinform,dealtype,dealDesti,dealstate,deaamountl from onlinebanking.dealinform where dealid=?";
 		try {
 			s = getCurrentSession();
 			s.beginTransaction();

@@ -13,7 +13,7 @@
   </head>
   
   <body>
-   <form action="SalaryProvidingAction_salaryProviding.action">
+   <form action="<%=basePath%>AccountService/SalaryProvidingAction_salaryProviding.action">
 
 				<select name="selectAccount"  class="form-control">
 					<c:forEach items="${request.accountIdList}" var="li">

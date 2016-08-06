@@ -1,16 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="bootstrap.jsp"%>%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <title>中国建设银行 个人网上银行</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -52,6 +49,7 @@
 		};
 
 		function test2(){
+
 			var accountid=$("#accountid").val();
 			var identityid=$("#identityid").val();
 			   var tr=$("#truename").val();	
@@ -72,13 +70,14 @@
 						accounti:accountid,truename:tr,identityid:identityid,username:usn,phone:ph,mail:mi,userpassword:usp,sex:se
 					},
 					success:function(data){
+
 						var aa = data.jsonstr;
 //						alert(aa);
 						//window.location.href="target.aspx";
 						window.location=""+aa;
 					}
 			});
-		}
+		};
 		
 		function findStr(str,n){
 			var temp;
@@ -88,7 +87,7 @@
 				}
 			}
 			return temp;
-		}
+		};
 
 		window.onload=function (){
 				var ainput=document.getElementsByTagName("input");
